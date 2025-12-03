@@ -9,7 +9,7 @@ def gas_storage_contract_value(prices_df, injection_dates, withdrawal_dates,
     if "Prices" in prices_df.columns:
         prices_df = prices_df.rename(columns={"Prices": "Price"})
 
-    # ✅ Convert date column to datetime format
+    #  Convert date column to datetime format
     prices_df['Date'] = pd.to_datetime(prices_df['Date'], errors='coerce')
     prices_df = prices_df.dropna(subset=['Date'])  # remove invalid rows
     prices_df = prices_df.set_index('Date')
@@ -78,3 +78,4 @@ result = gas_storage_contract_value(
 print("\n📊 Contract Pricing Result:")
 for k, v in result.items():
     print(f"{k}: {v:.2f}")
+
