@@ -34,7 +34,7 @@ tree_model.fit(X_train, y_train)
 log_auc = roc_auc_score(y_test, log_model.predict_proba(X_test_scaled)[:, 1])
 tree_auc = roc_auc_score(y_test, tree_model.predict_proba(X_test)[:, 1])
 
-print("📈 Model Comparison (AUC Scores)")
+print(" Model Comparison (AUC Scores)")
 print("----------------------------------")
 print(f"Logistic Regression AUC : {log_auc:.4f}")
 print(f"Decision Tree AUC       : {tree_auc:.4f}")
@@ -65,7 +65,7 @@ def compare_expected_loss(income, loan_amt_outstanding, years_employed,
     tree_pd = tree_model.predict_proba(input_data)[:, 1][0]
     tree_el = tree_pd * LGD * loan_amt_outstanding
 
-    print("🔍 Comparison for Given Borrower")
+    print(" Comparison for Given Borrower")
     print("----------------------------------")
     print(f"Logistic Regression → PD: {log_pd:.4f} | Expected Loss: ₹{log_el:.2f}")
     print(f"Decision Tree       → PD: {tree_pd:.4f} | Expected Loss: ₹{tree_el:.2f}")
@@ -82,3 +82,4 @@ compare_expected_loss(
     credit_lines_outstanding=3,
     total_debt_outstanding=12000
 )
+
