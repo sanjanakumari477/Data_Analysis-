@@ -3,7 +3,7 @@ import pandas as pd
 def gas_storage_contract_value(prices_df, injection_dates, withdrawal_dates,
                                injection_rate, withdrawal_rate,
                                max_storage, storage_cost_per_day):
-    # ✅ Fix column names to match your CSV
+    #  Fix column names to match your CSV
     if "Dates" in prices_df.columns:
         prices_df = prices_df.rename(columns={"Dates": "Date"})
     if "Prices" in prices_df.columns:
@@ -56,15 +56,15 @@ def gas_storage_contract_value(prices_df, injection_dates, withdrawal_dates,
 
 # ===================== MAIN SCRIPT =====================
 
-# 🗂️ Load your CSV file — update the filename if needed
+#  Load your CSV file — update the filename if needed
 file_path = r"C:\Users\sksan\Downloads\Nat_Gas.csv"
 df = pd.read_csv(file_path)
 
-# 📆 Define injection and withdrawal dates (must exist in your CSV)
+# Define injection and withdrawal dates (must exist in your CSV)
 injection_dates = ["2020-11-30", "2020-12-31", "2021-01-31"]
 withdrawal_dates = ["2021-02-28", "2021-03-31", "2021-04-30"]
 
-# ⚙️ Run pricing model
+#  Run pricing model
 result = gas_storage_contract_value(
     prices_df=df,
     injection_dates=injection_dates,
@@ -75,7 +75,8 @@ result = gas_storage_contract_value(
     storage_cost_per_day=0.05
 )
 
-print("\n📊 Contract Pricing Result:")
+print("\n Contract Pricing Result:")
 for k, v in result.items():
     print(f"{k}: {v:.2f}")
+
 
